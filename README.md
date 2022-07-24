@@ -5,7 +5,7 @@ Convert array of objects into object with keys based on key we have passed in.
 
 ## Example
 ```typescript
-import { arrayToObject } from "./index";
+import { arrayToObject } from "from-array-to-object";
 
 const objects = [
   { id: 1, name: "Tony", otherData: { age: 22, gender: "male" } },
