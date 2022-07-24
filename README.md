@@ -42,3 +42,5 @@ arrayToObject(objects, "otherData", "gender"); // only last objects with unique 
 arrayToObject(objects, "otherData", "gender"); // there is no "otherData.gender", so we will get empty object
 // {}
 ```
+
+Only string and number can be used as key in result object.

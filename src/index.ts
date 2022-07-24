@@ -1,5 +1,5 @@
 export function arrayToObject(array: object[], ...keys: string[]): object {
-  return array.reduce((obj: any, item: any) => {
+  return array.reduce((obj: any, item: object) => {
     const key = getValueDeep(item, keys);
     if (key !== undefined) {
       obj[key] = item;
@@ -8,13 +8,17 @@ export function arrayToObject(array: object[], ...keys: string[]): object {
   }, {});
 }
 
-function getValueDeep(obj: any, keys: string[]): string | number | undefined {
-  let value = undefined;
-  let temp = obj;
+function getValueDeep(
+  obj: object,
+  keys: string[]
+): string | number | undefined {
+  let value: any = obj;
   for (const key of keys) {
-    if (typeof temp === "object") {
-      value = temp[key];
-      temp = value;
+    if (typeof value === "object" && value.hasOwnProperty(key)) {
+      value = value[key];
+    } else {
+      value = undefined;
+      break;
     }
   }
   if (typeof value === "number" || typeof value === "string") {

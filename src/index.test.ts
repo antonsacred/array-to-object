@@ -40,4 +40,52 @@ test("array to object", () => {
   expect(arrayToObject(objects, "otherData", "phone", "number")).toEqual({});
 
   expect(arrayToObject(objects, "otherData")).toEqual({});
+
+  expect(arrayToObject(objects, "notExistProperty", "name")).toEqual({});
+
+  expect(arrayToObject(objects, "name", "name")).toEqual({});
+
+  expect(arrayToObject(objects, "name", "otherData")).toEqual({});
+
+  expect(arrayToObject(objects, "otherData", "name")).toEqual({});
+});
+
+test("more cases", () => {
+  const objects = [
+    {
+      id: 1,
+      name: "Tony",
+      otherData: {
+        null: null,
+        undefined: undefined,
+        float: 10.5,
+        function: () => {},
+        boolean: true,
+      },
+    },
+    {
+      id: 2,
+      name: "Tony",
+      otherData: {
+        null: null,
+        undefined: undefined,
+        float: 11.2,
+        function: () => {},
+        boolean: true,
+      },
+    },
+  ];
+
+  expect(arrayToObject(objects, "otherData", "null")).toEqual({});
+  expect(arrayToObject(objects, "otherData", "undefined")).toEqual({});
+  expect(arrayToObject(objects, "otherData", "function")).toEqual({});
+  expect(arrayToObject(objects, "otherData", "boolean")).toEqual({});
+
+  const objectFloatAsKey = {
+    "10.5": objects[0],
+    "11.2": objects[1],
+  };
+  expect(arrayToObject(objects, "otherData", "float")).toEqual(
+    objectFloatAsKey
+  );
 });
