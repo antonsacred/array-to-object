@@ -1,4 +1,4 @@
-export function arrayToObject(array: object[], ...keys: string[]): {} {
+export function arrayToObject(array: object[], ...keys: string[]): object {
   return array.reduce((obj: any, item: any) => {
     const key = getValueDeep(item, keys);
     if (key !== undefined) {
