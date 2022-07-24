@@ -1,6 +1,6 @@
 {
   "name": "from-array-to-object",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Convert array of objects into object with keys based on key we have passed in.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
