@@ -1,5 +1,6 @@
 # Array of objects to object
 [![codecov](https://codecov.io/gh/antonsacred/array-to-object/branch/master/graph/badge.svg?token=C10CHOFXWE)](https://codecov.io/gh/antonsacred/matrix-determinant)
+<span class="badge-npmversion"><a href="https://npmjs.com/package/from-array-to-object" title="View this project on NPM"><img src="https://img.shields.io/npm/v/from-array-to-object.svg" alt="NPM version" /></a></span>
 
 Convert array of objects into object with keys based on key we have passed in.
 
